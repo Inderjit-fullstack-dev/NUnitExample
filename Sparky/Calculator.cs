@@ -9,6 +9,11 @@ namespace Sparky
             return a + b;
         }
 
+        public double AddDouble(double a, double b)
+        {
+            return a + b;
+        }
+
         public bool IsOddNumber(int number) 
         {
             return number % 2 != 0;

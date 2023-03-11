@@ -31,13 +31,34 @@ namespace SparkyNUnitTest
         [Test]
         [TestCase(5)]
         [TestCase(3)]
-        [TestCase(7)]
-        [TestCase(11)]
         public void IsOddNumber_InputOddNumber_ReturnsTrue(int number)
         {
             Calculator calculator = new();
             bool result = calculator.IsOddNumber(number);
-            Assert.IsTrue(result);
+            //Assert.IsTrue(result);
+            Assert.That(result, Is.EqualTo(true));
         }
+
+        [TestCase(10, ExpectedResult = false)]
+        [TestCase(11, ExpectedResult = true)]
+        public bool IsOddNumber_InputNumber_ReturnTrueIfOdd(int number)
+        {
+            Calculator calculator = new();
+            return calculator.IsOddNumber(number);
+        }
+
+        [TestCase(5.0, 1.1)]
+        [TestCase(5.2, 1.6)]
+        [TestCase(5.1, 1.9)]
+        public void AddDouble_InputTwoDouble_ReturnsAddtion(double a, double b)
+        {
+            Calculator calculator = new();
+            var result = calculator.AddDouble(a, b);
+
+            // if the different between 6.1 and output result is 1 or less than 1 passed otherwise fail.
+            Assert.AreEqual(6.1, result, 1); 
+        }
+
+
     }
 }
