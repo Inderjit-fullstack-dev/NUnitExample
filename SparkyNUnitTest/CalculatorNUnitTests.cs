@@ -1,11 +1,20 @@
 ﻿using NUnit.Framework;
 using Sparky;
+using System.Collections.Generic;
 
 namespace SparkyNUnitTest
 {
     [TestFixture]
     public class CalculatorNUnitTests
     {
+        private Calculator calculator;
+
+        [SetUp]
+        public void Setup()
+        {
+            calculator = new Calculator();
+        }
+
         [Test]
         public void Add_InputTwoIntegers_GetAddition()
         {
@@ -57,6 +66,18 @@ namespace SparkyNUnitTest
 
             // if the different between 6.1 and output result is 1 or less than 1 passed otherwise fail.
             Assert.AreEqual(6.1, result, 1); 
+        }
+
+        [Test]
+        public void GetEvenRange_InputMinAndMaxRange_ResultListOfEvenNumber()
+        {
+            // compare the list of items.
+
+            List<int> evenNumbers = new() { 2, 4 };
+
+            var result = calculator.GetEvenRange(2, 4);
+
+            Assert.That(result, Is.EquivalentTo(evenNumbers));
         }
 
 

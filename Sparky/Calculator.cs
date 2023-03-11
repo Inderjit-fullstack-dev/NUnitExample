@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Sparky
 {
@@ -18,5 +19,20 @@ namespace Sparky
         {
             return number % 2 != 0;
         }
+
+        public List<int> GetEvenRange(int minRange, int maxRange)
+        {
+            List<int> evenNumbers = new();
+            for (int i = minRange; i <= maxRange; i++)
+            {
+                if (i % 2 == 0) 
+                {
+                    evenNumbers.Add(i);
+                }
+            }
+
+            return evenNumbers;
+        }
+
     }
 }
